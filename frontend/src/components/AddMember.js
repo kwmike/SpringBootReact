@@ -19,7 +19,7 @@ function AddMember(setFields) {
     return (
         <div>
             <Paper elevation={3} style={paperStyle}>
-            <h1><u>Add Member</u></h1><br/>
+            <h1 style={{textAlign:'center'}}><u>Add Member</u></h1><br/>
             <form className={ClassNames.root} noValidate autoComplete="off">
                 <TextField style={fieldStyle} id="fname" label="First Name" variant="outlined" value={fname} fullWidth onChange={(e) => setFname(e.target.value)}/>
                 <TextField style={fieldStyle} id="lname" label="Last Name" variant="outlined" value={lname} fullWidth onChange={(e) => setLname(e.target.value)}/>

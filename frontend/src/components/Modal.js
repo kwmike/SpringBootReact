@@ -24,7 +24,7 @@ export default function MemberModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={handleOpen}>Add Member</Button>
       <Modal
         open={open}
         onClose={handleClose}

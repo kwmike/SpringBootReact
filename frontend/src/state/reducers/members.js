@@ -1,13 +1,17 @@
 import { createReducer } from "@reduxjs/toolkit";
+import Axios from "axios";
+import { getMemberSuccess } from "../action-creators";
+import { addMember } from "../action-creators";
 const initialState = {
     isLoading: true,
     data: [],
     error: ''
   }
 const reducer = createReducer(initialState, (builder) => {
-    builder.addCase("FETCH_MEMBER_SUCCESS", (state, action) => {
+    builder.addCase(getMemberSuccess, (state, action) => {
             console.log("FETCH_MEMBER STATE", state);
             return {
+                ...state,
                 data: action.payload,
                 isLoading:false,
                 error:''
@@ -22,17 +26,21 @@ const reducer = createReducer(initialState, (builder) => {
             state.members.isLoading = false;
             state.members.error = action.payload;
         })
-        .addCase("ADD_MEMBERS", (state, action) => {
-            const {members} = state;
+        .addCase(addMember, (state, action) => {
             const {payload} = action;
+            const {fname,lname,email} = payload;
             console.log('ADD_MEMBERS STATE', state);
-            console.log('ADD_MEMBERS members', members);
-            if(members.data.includes(member => member.data.fname === payload.fname)) {
-                return state.member.data[payload.id] = payload
-            } else {
-                state.data.push(payload);
-            }
-            
+            Axios.post("http://localhost:8080/member/add", {
+                fname,
+                lname,
+                email
+            }).then((response) => {
+                console.log(response);
+            }).then(() => {
+                getMemberSuccess();
+            }).catch(function (error) {
+                console.log('AXIOS ADD MEMBER ERROR', error)
+            })
         })
 })
 
