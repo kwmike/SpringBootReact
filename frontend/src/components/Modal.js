@@ -33,7 +33,7 @@ export default function MemberModal() {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
-            <AddMember />
+            <AddMember closeFunc={handleClose}/>
           </Typography>
         </Box>
       </Modal>

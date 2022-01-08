@@ -1,9 +1,10 @@
 import React from 'react';
 import { Paper } from '@mui/material';
-import { shallowEqual, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { selectMembers } from '../state/members/memberSlice';
 
 export default function ListMembers() {
-    var memberData = useSelector((state) => state.members.data,shallowEqual);
+    const memberData = useSelector(selectMembers);
     console.log("Render Members MEMBERS: ", memberData);
 
     

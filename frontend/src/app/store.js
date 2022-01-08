@@ -1,16 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
-import reducers from '../state/reducers';
 import ThunkMiddleware from 'redux-thunk';
-import asyncDispatchMiddleware from '../state/asyncDispatch';
+import memberReducer from '../state/members/memberSlice';
 
 export const store = configureStore({
-  reducer: reducers,
-  middleware: [ThunkMiddleware, asyncDispatchMiddleware],
+  reducer: {
+    members: memberReducer
+  },
+  middleware: [ThunkMiddleware],
   preloadedState: {
     members: {
-      isLoading: true,
-      data: [],
-      error: ''
+      isLoading: false,
+      data: []
     }
   }
 });

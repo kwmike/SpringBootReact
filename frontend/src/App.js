@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import {useEffect} from 'react';
 import './App.css';
 import NavBar from './components/nav/NavBar';
 import {Routes, Route, Outlet, Navigate} from 'react-router-dom';
 import { useLocation } from 'react-router';
 import Footer from './components/Footer';
-import ListMembers from './components/ListMembers';
-import Home from './pages/Home';
+import Members from './pages/Members';
 const Format = () => {
   return(
     <>
@@ -25,7 +23,7 @@ function App() {
           <Route path="" element={<Placeholder name="Home"/>} />
         </Route>
         <Route path='/members' element={<><NavBar />{Format()}</>}>
-          <Route path="" element={<Home/>}/>
+          <Route path="" element={<Members/>}/>
           <Route path="add" element={<Placeholder name="Add"/>}/>
         </Route>
       </Routes>
