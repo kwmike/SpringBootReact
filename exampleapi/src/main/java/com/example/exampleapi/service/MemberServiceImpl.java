@@ -1,5 +1,6 @@
 package com.example.exampleapi.service;
 import java.util.List;
+import java.util.Optional;
 
 import com.example.exampleapi.model.Member;
 import com.example.exampleapi.repository.MemberRepository;
@@ -16,5 +17,9 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public List<Member> getAllMembers() {
         return memberRepository.findAll();
+    }
+    @Override
+    public Optional<Member> findById(Integer id) {
+        return memberRepository.findById(id);
     }
 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Paper } from '@mui/material';
 import { useSelector } from 'react-redux';
-import { selectMembers } from '../state/members/memberSlice';
+import { NavLink } from 'react-router-dom';
 
 export default function ListMembers() {
-    const memberData = useSelector(selectMembers);
+    const memberData = useSelector((state) => state.members.data);
     console.log("Render Members MEMBERS: ", memberData);
 
     
@@ -15,6 +15,7 @@ export default function ListMembers() {
                     First Name: {member.fname}<br/>
                     Last Name: {member.lname}<br/>
                     Email: {member.email}<br/>
+                    <NavLink className='btn btn-dark' to={`/members/${member.id}`}>View Member</NavLink>
                 </Paper>
             );
         })

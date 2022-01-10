@@ -1,5 +1,6 @@
 package com.example.exampleapi.controller;
 import java.util.List;
+import java.util.Optional;
 
 import com.example.exampleapi.model.Member;
 import com.example.exampleapi.service.MemberService;
@@ -27,4 +28,9 @@ public class MemberController {
     public List<Member> getAllMembers() {
         return memberService.getAllMembers();
     }
+    @GetMapping("/getOne")
+    public Optional<Member> findById(Integer id) {
+        return memberService.findById(id);
+    }
+
 }

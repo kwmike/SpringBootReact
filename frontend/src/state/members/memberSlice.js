@@ -51,6 +51,6 @@ const memberSlice = createSlice({
 
 export default memberSlice.reducer
 
-const selectMemberData = (state) => state.members.data;
+// const selectMemberData = (state) => state.members.data;
 
-export const selectMembers = createSelector(selectMemberData, (entities) => Object.values(entities))
+// export const selectMembers = createSelector(selectMemberData, (entities) => Object.values(entities))
