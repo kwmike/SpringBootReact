@@ -11,7 +11,8 @@ function MemberInfo() {
     const name = fname + " " + lname;
     return (
         <div>
-        <p>Name: {name}</p>
+        <h1>Name: {name}</h1>
+        <p>Id: {id}</p>
         <p>Params: {params.id}</p>
         <p>Location: {location.pathname}</p>
         </div>

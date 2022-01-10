@@ -118,9 +118,6 @@ export default function NavBar() {
                 }
               })}
             </List>
-            {/* <MenuItem onClick={e=>handleNavClick('/')}>Home</MenuItem>
-            <MenuItem onClick={e=>handleNavClick('/members')}>Members</MenuItem>
-            <MenuItem onClick={e=>handleNavClick('/ships')}>Ships</MenuItem> */}
           </Menu>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Spring Boot React Full Stack Application with PostgreSQL Database
